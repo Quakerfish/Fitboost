@@ -1,6 +1,23 @@
 import random
 import datetime
-from workout import physicalworkout, mentalworkout, memorygame, adventuregame, wordle, riddlegame, reactiontime, slowprint, clear
+from workout import physicalworkout, mentalworkout, memorygame, wordle, riddlegame, reactiontime, slowprint, clear, PhysicalCards, MentalCards
+
+def show_cards():
+    clear()
+    slowprint("📂 --- YOUR CARD COLLECTION --- 🎴\n")
+
+    slowprint("💪 Physical Power-Cards:\n")
+    for card in PhysicalCards:
+        print(f"🟥 {card['name']}")
+        print(f"   ➤ {card['description']}\n")
+
+    slowprint("🧠 Mental Power-Cards:\n")
+    for card in MentalCards:
+        print(f"🟦 {card['name']}")
+        print(f"   ➤ {card['description']}\n")
+
+    input("Press Enter to return to the main menu...")
+    main_menu()
 
 def main_menu():
     clear()
@@ -16,9 +33,7 @@ def main_menu():
             play_game()
             break
         elif choice == '2':
-            slowprint("📂 Cards feature coming soon!")
-            input("Press Enter to return to main menu...")
-            main_menu()
+            show_cards()
             break
         elif choice == '3':
             slowprint("⚙️ Settings feature coming soon!")
@@ -84,5 +99,4 @@ def play_game():
     input("Press Enter to return to main menu...")
     main_menu()
 
-# Start game
 main_menu()
